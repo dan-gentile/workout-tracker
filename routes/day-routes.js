@@ -13,6 +13,20 @@ router.get("/api/days", (req, res) => {
         });
 });
 
+// gets one day 
+router.get("/api/days/:id", (req, res) => {
+    db.Day.findById({
+            _id: req.params.id
+        })
+        .then(dbOneDay => {
+            res.json(dbOneDay);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
+
+// creates new day
 router.post("/submit/day", ({ body }, res) => {
     db.Day.create(body)
         .then(dbDay => {

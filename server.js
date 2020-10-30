@@ -4,9 +4,6 @@ const express = require('express')
 const logger = require('morgan')
 const mongoose = require('mongoose')
 
-// Imported Models 
-const db = require("./models");
-
 // Server 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -26,7 +23,8 @@ mongoose.connect(
     }
 );
 // Imported Routes 
-
+app.use(require("./routes/day-routes.js"));
+app.use(require("./routes/run-routes.js"));
 
 // Start the Server 
 app.listen(PORT, () => {

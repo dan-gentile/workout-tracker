@@ -4,11 +4,13 @@ const Schema = mongoose.Schema;
 
 const RunSchema = new Schema({
     distance: {
-        type: Number
+        type: Number,
+        required: true
     },
 
     duration: {
-        type: String
+        type: String,
+        required: true
     },
 
     elevation: {
@@ -16,7 +18,8 @@ const RunSchema = new Schema({
     },
 
     title: {
-        type: String
+        type: String,
+        required: true
     },
 
     runType: {
@@ -27,25 +30,29 @@ const RunSchema = new Schema({
         type: String
     },
 
+    time: {
+        type: String
+    },
+
     pace: String
 
 });
 
-// Sets today's Day returns as a string 
+// Sets the pace avg pace of the run
 RunSchema.methods.getPace = function() {
     const timeToSeconds = this.duration.split(':');
     const seconds = (+timeToSeconds[0] * 60 * 60) + (+timeToSeconds[1] * 60) + (+timeToSeconds[2]);
     const paceSeconds = seconds / this.distance;
     const paceMinutes = paceSeconds / 60;
-    const remainder = paceMinutes - Math.floor(paceMinutes)
+    const remainder = paceMinutes - Math.floor(paceMinutes);
     let resultSeconds = Math.floor(remainder * 60); // takes the remainder converts to seconds 
     if (resultSeconds < 10) {
         resultSeconds = `0${resultSeconds.toString()}`; //if seconds is < 10 add a zero 
     } else {
-        resultSeconds = resultSeconds.toString()
+        resultSeconds = resultSeconds.toString();
     }
     const resultMinutes = Math.floor(paceMinutes).toString(); //removes the remainder + converts to string
-    return this.pace = `${resultMinutes}:${resultSeconds}` //returns a string of the time
+    return this.pace = `${resultMinutes}:${resultSeconds}`; //returns a string of the time
 };
 
 // This creates our model from the above schema

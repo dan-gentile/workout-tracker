@@ -31,4 +31,24 @@ router.post("/submit", ({ body }, res) => {
         });
 });
 
+router.put("/api/run/:id", (req, res) => {
+    db.Run.findByIdAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true }, (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(data);
+        }
+    });
+});
+
+router.delete("/api/run/:id", (req, res) => {
+    db.Run.findByIdAndRemove({ _id: req.params.id }, (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(data);
+        }
+    });
+});
+
 module.exports = router;

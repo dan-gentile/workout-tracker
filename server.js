@@ -5,7 +5,7 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 
 // Imported Models 
-
+const db = require("./models");
 
 // Server 
 const app = express();
@@ -16,8 +16,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workoutdb", { useNewUrlParser: true });
-
+// connect to database 
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/workoutdb', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false
+    }
+);
 // Imported Routes 
 
 

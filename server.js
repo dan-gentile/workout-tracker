@@ -1,10 +1,9 @@
 'use strict';
-// Required Dependencies 
-const express = require('express')
-const logger = require('morgan')
-const mongoose = require('mongoose')
+const express = require('express');
+const logger = require('morgan');
+const mongoose = require('mongoose');
+const exphbs = require("express-handlebars");
 
-// Server 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -13,7 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-// connect to database 
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+
 mongoose.connect(
     process.env.MONGODB_URI || 'mongodb://localhost/workoutdb', {
         useNewUrlParser: true,
@@ -22,11 +24,14 @@ mongoose.connect(
         useFindAndModify: false
     }
 );
-// Imported Routes 
+
 app.use(require("./routes/day-routes.js"));
 app.use(require("./routes/run-routes.js"));
 
-// Start the Server 
+app.get('/', function(req, res) {
+    res.render("index");
+});
+
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
 });

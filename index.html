@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Not Strava</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-div">
+            <img src="/public/assets/header image.png" alt="people running in park" width="240px">
+        </div>
+    </header>
+
+
+    <nav>
+        <!-- Modal -->
+        <button id="modal-btn" class="button">Add</button>
+        <div class="modal" id="simple-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3>New Run</h3>
+                <form>
+                    <div class="form-input">
+                        <label for="distance">Distance</label>
+                        <input type="text" id="distance" placeholder="miles">
+                    </div>
+                    <div class="form-input">
+                        <label for="duration">Duration</label>
+                        <input type="text" id="duration" placeholder="00:00:00">
+                    </div>
+                    <div class="form-input">
+                        <label for="elevation">Elevation</label>
+                        <input type="text" id="elevation" placeholder="in feet">
+                    </div>
+                    <div class="form-input">
+                        <label for="title">Title</label>
+                        <input type="text" id="title">
+                    </div>
+                    <div class="form-input">
+                        <label for="runtype">Run Type</label>
+                        <select name="runtype">
+                            <option value="Easy Run">Easy Run</option> 
+                            <option value="Long Run" >Long Run</option>
+                            <option value="Workout" >Workout</option>
+                            <option value="Race">Race</option>
+                          </select>
+                    </div>
+                    <div class="form-input">
+                        <label for="description">Description</label>
+                        <textarea id="description"></textarea>
+                    </div>
+                    <div class="form-input">
+                        <label for="time">Time</label>
+                        <input type="time" id="time">
+                    </div>
+                    <button id="new-run" class="button">Submit</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="chart">
+
+        </div>
+        <div class="runs">
+
+        </div>
+        <div class="calendar">
+
+        </div>
+
+    </main>
+    <footer>
+
+    </footer>
+
+    <!-- JS Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/routes.js"></script>
+</body>
+
+</html>

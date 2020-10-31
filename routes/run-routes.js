@@ -2,7 +2,6 @@
 const router = require("express").Router();
 const db = require("../models/index.js");
 
-// get all of the runs
 router.get("/api/runs", (req, res) => {
     db.Run.find({})
         .then(dbRun => {
@@ -12,7 +11,7 @@ router.get("/api/runs", (req, res) => {
             res.json(err);
         });
 });
-// get one run 
+
 router.get("/api/runs/:id", (req, res) => {
     db.Run.findById({ _id: req.params.id })
         .then(dbOneRun => {
@@ -23,14 +22,10 @@ router.get("/api/runs/:id", (req, res) => {
         });
 });
 
-
-// create a run
 router.post("/submit", ({ body }, res) => {
-    // Create a new run using req.body
     const newRun = new db.Run(body);
-    // running getPace function
     newRun.getPace();
-    // adding new run to db
+
     db.Run.create(newRun)
         .then(({ _id }) => db.Day.findOneAndUpdate({}, { $push: { run: _id } }, { new: true }))
         .then(newRunData => {

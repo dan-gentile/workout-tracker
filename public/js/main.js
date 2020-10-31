@@ -1,19 +1,20 @@
 'use strict';
 
-const modal = $('#simple-modal');
-// open modal
-$('#modal-btn').on("click", event => {
-    modal.css('display', 'block');
-});
+// Modal
+const modal = document.getElementById("simple-modal");
+const modalBtn = document.getElementById("modal-btn");
+const closeBtn = document.getElementsByClassName("close-btn")[0];
 
-// close modal on button
-$('.close-btn').on("click", event => {
-    modal.css('display', 'none');
-});
+modalBtn.onclick = event => {
+    modal.style.display = "block";
+};
 
-//close modal on outside click 
-$(document).on("click", function(event) {
-    if ($(event.target).is(modal)) {
-        modal.css('display', 'none');
+closeBtn.onclick = event => {
+    modal.style.display = "none";
+};
+
+document.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
-});
+};

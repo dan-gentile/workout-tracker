@@ -2,7 +2,6 @@
 const router = require("express").Router();
 const db = require("../models/index.js");
 
-// get all of the days 
 router.get("/api/days", (req, res) => {
     db.Day.find({})
         .then(dbRun => {
@@ -13,7 +12,16 @@ router.get("/api/days", (req, res) => {
         });
 });
 
-// gets one day 
+router.get("/api/days/search/:id", (req, res) => {
+    db.Day.findOne({ date: req.params.id })
+        .then(dbRun => {
+            res.json(dbRun);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
+
 router.get("/api/days/:id", (req, res) => {
     db.Day.findById({
             _id: req.params.id
@@ -26,7 +34,6 @@ router.get("/api/days/:id", (req, res) => {
         });
 });
 
-// creates new day
 router.post("/submit/day", ({ body }, res) => {
     db.Day.create(body)
         .then(dbDay => {

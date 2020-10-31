@@ -15,8 +15,6 @@ const DaySchema = new Schema({
 
 });
 
-// This creates our model from the above schema
 const Day = mongoose.model("Day", DaySchema);
 
-// Export the Day model
 module.exports = Day;

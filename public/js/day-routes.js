@@ -9,7 +9,7 @@ const getTodaysDate = () => {
 }
 
 // checks if database record for today exists
-const createDateCollection = () => {
+const checkDateCollection = () => {
     const date = getTodaysDate()
     fetch(`/api/days/search/${date}`, {
             method: "GET",
@@ -61,6 +61,7 @@ const createNewDay = () => {
         })
 };
 
+
 const getAllData = () => {
     fetch('/api/days', {
             method: "GET",
@@ -95,23 +96,12 @@ const populatePage = () => {
             day.run.forEach(run => {
                 const eachRunDiv = document.createElement('div');
                 eachRunDiv.classList.add('each-run');
-                eachRunDiv.innerHTML = `
-                <h5>${runDate}</h5>
-                <h5>${run.title}</h5>
-                <p>${run.distance} miles</p>
-                <p>${run.time}</p>
-                <p>${run.pace} minutes</p>
-                <p>${run.elevation} ft</p>
-                <p>${run.runType}</p>
-                <p>${run.description}</p>
-                <button class="update" data-id="${run._id}">Update</button>
-                <button class="delete" data-id="${run._id}">Delete</button>
-                `
-
+                eachRunDiv.innerHTML = generateRunDivs(run, runDate);
                 runDiv.prepend(eachRunDiv)
             })
         }
     });
     pageReady();
 }
-createDateCollection();
+
+checkDateCollection();

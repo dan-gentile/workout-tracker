@@ -13,24 +13,12 @@ const RunSchema = new Schema({
         required: true
     },
 
-    elevation: {
-        type: Number
-    },
-
     title: {
         type: String,
         required: true
     },
 
     runType: {
-        type: String
-    },
-
-    description: {
-        type: String
-    },
-
-    time: {
         type: String
     },
 
@@ -52,7 +40,7 @@ RunSchema.methods.getPace = function() {
         resultSeconds = resultSeconds.toString();
     }
     const resultMinutes = Math.floor(paceMinutes).toString(); //removes the remainder + converts to string
-    return this.pace = `${resultMinutes}:${resultSeconds}`; //returns a string of the time
+    return this.pace = `${resultMinutes}:${resultSeconds} /mi`; //returns a string of the time
 };
 
 const Run = mongoose.model("Run", RunSchema);

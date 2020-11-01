@@ -1,8 +1,9 @@
 body {
     display: grid;
     grid-template-columns: 1fr 1fr minmax(320px, 1fr) 1fr 1fr;
-    grid-template-rows: 30vh 5vh 55vh 10vh;
+    grid-template-rows: 30vh 5vh 1fr 10vh;
     background-color: #f7f7fa;
+    font-family: "Segoe UI", "Helvetica Neue"
 }
 
 header {
@@ -27,24 +28,16 @@ nav {
     align-items: center;
 }
 
-footer {
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 4;
-    grid-row-end: span 1;
-    background-color: #fff;
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
-}
-
 .runs {
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: span 1;
-    margin-top: 10px;
+    margin: 10px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 5px;
 }
 
 .each-run {
@@ -53,8 +46,124 @@ footer {
     flex-direction: column;
     align-items: center;
     background-color: #fff;
+    border-radius: 5px;
     width: 100%;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.date {
+    background-color: rgba(255, 78, 3, .5);
+    width: 100%;
+    padding-left: 95px;
+}
+
+.run-title {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    width: 100%;
+    padding: 5px 15px;
+}
+
+.details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.distance-div {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid lightgray;
+    padding: 0 5px;
+}
+
+.distance {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+
+.duration-div {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid lightgray;
+    padding: 0 5px;
+}
+
+.duration {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+
+.pace-div {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid lightgray;
+    padding: 0 5px;
+}
+
+.pace {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+
+.run-type-div {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+}
+
+.run-type {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+}
+
+label {
+    font-size: .5rem;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.delete {
+    float: right;
+    margin-right: 10px;
+    color: #000;
+}
+
+.button {
+    background-color: rgba(255, 78, 3, 1);
+    padding: 6px;
+    border-width: 0;
+    border-radius: 4px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.edit,
+.update {
+    margin-bottom: 4px;
+}
+
+.button:hover,
+.button:focus {
+    background-color: rgba(255, 78, 3, 0.5);
 }
 
 
@@ -94,7 +203,9 @@ footer {
 }
 
 .close-btn:hover,
-.close-btn:focus {
+.close-btn:focus,
+.delete:hover,
+.delete:focus {
     color: #000000;
     text-decoration: none;
     cursor: pointer;

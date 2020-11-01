@@ -2,39 +2,17 @@
 const router = require("express").Router();
 const db = require("../models/index.js");
 
-router.get("api/runs", (req, res) => {
-    db.Run.find({})
-        .then(dbRun => {
-            res.json(dbRun)
-        })
-        .catch(err => {
-            res.json(err);
-        });
-});
+router.post("/submit/:id", (req, res) => {
 
-router.get("/api/runs/:id", (req, res) => {
-    db.Run.findById({ _id: req.params.id })
-        .then(dbOneRun => {
-            res.json(dbOneRun);
-        })
-        .catch(err => {
-            res.json(err);
-        });
-});
-
-router.post("/submit", ({ body }, res) => {
-    console.log(body)
-    const newRun = new db.Run(body);
+    const newRun = new db.Run(req.body);
     newRun.getPace();
-
+    console.log(newRun)
     db.Run.create(newRun)
-        .then(({ _id }) => db.Day.findOneAndUpdate({}, { $push: { run: _id } }, { new: true }))
+        .then(({ _id }) => db.Day.findOneAndUpdate({ _id: req.params.id }, { $push: { run: _id } }, { new: true }))
         .then(newRunData => {
-
             res.json(newRunData);
         })
         .catch(err => {
-
             res.json(err);
         });
 });

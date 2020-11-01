@@ -4,8 +4,9 @@ const db = require("../models/index.js");
 
 router.get("/api/days", (req, res) => {
     db.Day.find({})
-        .then(dbRun => {
-            res.json(dbRun);
+        .populate("run")
+        .then(dbDayData => {
+            res.json(dbDayData)
         })
         .catch(err => {
             res.json(err);

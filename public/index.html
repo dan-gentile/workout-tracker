@@ -1,17 +1,32 @@
-<header>
-    <div class="logo-div">
-        <img src="./assets/headerimage.png" alt="people running in park" width="240px">
-    </div>
-</header>
+<!DOCTYPE html>
+<html lang="en">
 
-<nav>
-    <!-- Modal -->
-    <button id="modal-btn" class="button">Add</button>
-    <div class="modal" id="simple-modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h3>New Run</h3>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <title>Not Strava</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-div">
+            <img src="/assets/headerimage.png" alt="people running in park" width="240px">
+        </div>
+    </header>
+
+    <nav>
+        <!-- Modal -->
+        <button id="modal-btn" class="button">Add</button>
+        <div class="modal" id="simple-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+
                 <form>
+                    <h3>New Run</h3>
                     <div class="form-input">
                         <label for="distance">Distance</label>
                         <input type="text" id="distance" placeholder="miles">
@@ -30,12 +45,12 @@
                     </div>
                     <div class="form-input">
                         <label for="runtype">Run Type</label>
-                        <select name="runtype">
-                            <option value="Easy Run">Easy Run</option> 
-                            <option value="Long Run" >Long Run</option>
-                            <option value="Workout" >Workout</option>
-                            <option value="Race">Race</option>
-                          </select>
+                        <select id="runtype">
+                                <option value="Easy">Easy Run</option> 
+                                <option value="Long" >Long Run</option>
+                                <option value="Workout" >Workout</option>
+                                <option value="Race">Race</option>
+                              </select>
                     </div>
                     <div class="form-input">
                         <label for="description">Description</label>
@@ -45,27 +60,36 @@
                         <label for="time">Time</label>
                         <input type="time" id="time">
                     </div>
-                   
+
                     <button id="new-run" class="button">Submit</button>
                 </form>
+            </div>
         </div>
-    </div>
-</nav>
-<main>
+    </nav>
+
     <div class="chart">
 
     </div>
-    <div class="runs">
+    <div id="runs" class="runs">
+
+
+
+
 
     </div>
+
     <div class="calendar">
 
     </div>
 
-</main>
-<footer>
 
-</footer>
+    <footer>
 
-<script src="./js/day-routes.js"></script>
-<script src="./js/main.js"></script>    
+    </footer>
+
+    <script src="/js/day-routes.js"></script>
+    <script src="/js/run-routes.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

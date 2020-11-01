@@ -2,10 +2,10 @@
 const router = require("express").Router();
 const db = require("../models/index.js");
 
-router.get("/api/runs", (req, res) => {
+router.get("api/runs", (req, res) => {
     db.Run.find({})
         .then(dbRun => {
-            res.json(dbRun);
+            res.json(dbRun)
         })
         .catch(err => {
             res.json(err);
@@ -23,6 +23,7 @@ router.get("/api/runs/:id", (req, res) => {
 });
 
 router.post("/submit", ({ body }, res) => {
+    console.log(body)
     const newRun = new db.Run(body);
     newRun.getPace();
 

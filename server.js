@@ -12,8 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// app.set("view engine", "handlebars");
 
 
 mongoose.connect(
@@ -27,10 +27,6 @@ mongoose.connect(
 
 app.use(require("./routes/day-routes.js"));
 app.use(require("./routes/run-routes.js"));
-
-app.get('/', function(req, res) {
-    res.render("index");
-});
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);

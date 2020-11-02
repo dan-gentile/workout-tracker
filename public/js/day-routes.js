@@ -143,6 +143,20 @@ const populatePage = () => {
             }
         });
     };
+
+    const sevenDayTotalElement = () => {
+        const sevenDayTotal = weeklyDistance => { return weeklyDistance.reduce((a, b) => { return a + b }, 0); };
+        const chartDiv = document.getElementById('chart');
+        const h4 = document.createElement('h4');
+        h4.style.textAlign = 'center';
+        h4.innerText = `Seven Day Total is ${sevenDayTotal(weeklyDistance)} mi`;
+
+        chartDiv.prepend(h4);
+
+    }
+    sevenDayTotalElement();
+
+
     const ctx = document.getElementById('myChart').getContext('2d');
 
     const myChart = new Chart(ctx, {

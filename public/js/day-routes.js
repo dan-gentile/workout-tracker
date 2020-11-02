@@ -116,9 +116,11 @@ const populatePage = () => {
                 weeklyDistance.push(0);
             } else if (day.run.length > 1) {
                 const runArr = day.run;
+                let totalDistance = 0;
                 runArr.forEach(run => {
-                    weeklyDistance.push(run.distance);
+                    totalDistance += run.distance;
                 })
+                weeklyDistance.push(totalDistance);
             } else {
                 weeklyDistance.push(day.run[0].distance);
             }
@@ -131,14 +133,17 @@ const populatePage = () => {
                 weeklyDistance.push(0);
             } else if (day.run.length > 1) {
                 const runArr = day.run;
+                let totalDistance = 0;
                 runArr.forEach(run => {
-                    weeklyDistance.push(run.distance);
+                    totalDistance += run.distance;
                 })
+                weeklyDistance.push(totalDistance);
             } else {
                 weeklyDistance.push(day.run[0].distance);
             }
         });
     };
+    console.log(weeklyDistance)
     const ctx = document.getElementById('myChart').getContext('2d');
 
     const myChart = new Chart(ctx, {
@@ -150,6 +155,15 @@ const populatePage = () => {
                 data: weeklyDistance,
                 backgroundColor: 'rgba(255, 78, 3, .5)'
             }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
         }
     });
     pageReady();

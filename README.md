@@ -24,7 +24,7 @@
 This workout tracker is built using Node, Express and Mongoose. The database has two collections the first is a day collection which on page load checks the database to see if a collection has been created for that day if it has not it will create a new on otherwise it will capture the id of the document, which will then be used to assign the additional collection, the run collection to the appropriate day collection. The run collection will ask you to input a title, the distance you ran in miles, and the time in HH:MM:SS format. Along with what kind of run it is. Once you enter those values the app will calculate your average pace for the run!. Every run has full CRUD abilities, just click on any element (except pace) change the value and click update! Or delete the run with click of the x in the upper right corner. The app will also display the distances ran over the last 7 days. 
 
 
-Web Link: <>
+Web Link: <https://not-strava.herokuapp.com/>
 ​
 
 ### Technologies
@@ -42,7 +42,7 @@ Project is created with:
 If running locally on your machine, make sure you have Node.js installed on your machine. As well as Mongo installed and copy the schema file in the root folder to build your database. In the root folder while in your terminal run `npm start` the application should be available on your browser at localhost:8080. 
 
 If running from browser just go to the link 
-<>
+<https://not-strava.herokuapp.com/>
 
 
 

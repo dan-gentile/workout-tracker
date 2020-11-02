@@ -18,3 +18,7 @@ document.onclick = function(event) {
         modal.style.display = "none";
     }
 };
+
+const durationMark = IMask(document.getElementById('duration'), {
+    mask: '00:00:00'
+});

@@ -30,7 +30,7 @@ const pageReady = () => {
 
     const durationInputField = document.getElementsByClassName('duration');
     for (let i = 0; i < durationInputField.length; i++) {
-        const durationMark = IMask(durationInputField[i], {
+        const durationMask = IMask(durationInputField[i], {
             mask: '00:00:00'
         });
 

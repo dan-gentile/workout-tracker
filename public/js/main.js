@@ -19,6 +19,6 @@ document.onclick = function(event) {
     }
 };
 
-const durationMark = IMask(document.getElementById('duration'), {
+const durationMask = IMask(document.getElementById('duration'), {
     mask: '00:00:00'
 });

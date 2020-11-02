@@ -1,9 +1,10 @@
 body {
     display: grid;
-    grid-template-columns: 1fr 1fr minmax(320px, 1fr) 1fr 1fr;
-    grid-template-rows: 30vh 5vh 1fr 10vh;
+    grid-template-columns: 1fr minmax(320px, 1fr) minmax(320px, 1fr) minmax(320px, 1fr) 1fr;
+    grid-template-rows: 30vh 5vh 1fr;
     background-color: #f7f7fa;
-    font-family: "Segoe UI", "Helvetica Neue"
+    font-family: "Segoe UI", "Helvetica Neue";
+    height: 100%;
 }
 
 header {
@@ -26,6 +27,42 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 10px 0;
+}
+
+input,
+select {
+    border: none;
+    background-color: #fff;
+    resize: none;
+    outline: none;
+    height: 2rem;
+}
+
+.chart {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: span 1;
+    margin: 20px auto;
+    background-color: #fff;
+    width: 80%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
 }
 
 .runs {
@@ -63,7 +100,9 @@ nav {
     resize: none;
     outline: none;
     width: 100%;
-    padding: 5px 15px;
+    padding: 5px 5px;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .details {
@@ -133,6 +172,7 @@ nav {
 }
 
 label {
+    text-align: left;
     font-size: .5rem;
 }
 
@@ -197,8 +237,8 @@ select {
 .close-btn {
     color: #ccc;
     position: fixed;
-    right: 200px;
-    top: 120px;
+    top: 20px;
+    right: 20px;
     font-size: 30px;
 }
 
@@ -209,4 +249,35 @@ select {
     color: #000000;
     text-decoration: none;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+    body {
+        grid-template-columns: 1fr minmax(320px, 1fr) 1fr;
+        grid-template-rows: 200px 50px 1fr 1fr;
+    }
+    header {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: span 1;
+    }
+    nav {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: span 1;
+    }
+    .chart {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: span 1;
+    }
+    .runs {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 4;
+        grid-row-end: span 1;
+    }
 }

@@ -87,6 +87,7 @@ const getAllData = () => {
 }
 
 const populatePage = () => {
+    // generate run details boxes 
     const runDiv = document.getElementById('runs');
 
     dataRetrieved.forEach(day => {
@@ -99,6 +100,56 @@ const populatePage = () => {
                 eachRunDiv.innerHTML = generateRunDivs(run, runDate);
                 runDiv.prepend(eachRunDiv)
             })
+        }
+    });
+
+    // generates the chart
+    const dates = [];
+    const weeklyDistance = [];
+
+    // if more than 7 days in the database
+    if (dataRetrieved.length > 7) {
+        for (let i = 6; i < dataRetrieved.length; i++) {
+            const day = array[i];
+            dates.day.date;
+            if (day.run.length === 0) {
+                weeklyDistance.push(0);
+            } else if (day.run.length > 1) {
+                const runArr = day.run;
+                runArr.forEach(run => {
+                    weeklyDistance.push(run.distance);
+                })
+            } else {
+                weeklyDistance.push(day.run[0].distance);
+            }
+        }
+        // if less than 7 days in the database
+    } else {
+        dataRetrieved.forEach(day => {
+            dates.push(day.date)
+            if (day.run.length === 0) {
+                weeklyDistance.push(0);
+            } else if (day.run.length > 1) {
+                const runArr = day.run;
+                runArr.forEach(run => {
+                    weeklyDistance.push(run.distance);
+                })
+            } else {
+                weeklyDistance.push(day.run[0].distance);
+            }
+        });
+    };
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Distance (Miles)',
+                data: weeklyDistance,
+                backgroundColor: 'rgba(255, 78, 3, .5)'
+            }]
         }
     });
     pageReady();

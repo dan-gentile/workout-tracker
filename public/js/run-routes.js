@@ -28,7 +28,7 @@ newRunBtn.onclick = event => {
 // fires once the page is ready
 const pageReady = () => {
 
-    // delete run
+
     const deleteRunBtn = document.getElementsByClassName("delete");
     for (let i = 0; i < deleteRunBtn.length; i++) {
         deleteRunBtn[i].addEventListener('click', function(event) {
@@ -46,7 +46,7 @@ const pageReady = () => {
         });
     };
 
-    // TODO: Put Route for Run
+
     const updateRunBtn = document.getElementsByClassName("update");
     for (let i = 0; i < updateRunBtn.length; i++) {
         updateRunBtn[i].addEventListener('click', function(event) {

@@ -19,9 +19,10 @@ const generateRunDivs = (run, runDate) => {
                 </div>
                 <div class="run-type-div">
                     <label for="run-type">Type:</label>
-                    <select class="run-type" id="run-type-${run._id}" value="${run.runType}">
-                        <option value="Easy">Easy Run</option> 
-                        <option value="Long" >Long Run</option>
+                    <select class="run-type" id="run-type-${run._id}">
+                        <option selected="selected">${run.runType}</option>
+                        <option value="Easy Run">Easy Run</option> 
+                        <option value="Long Run" >Long Run</option>
                         <option value="Workout" >Workout</option>
                         <option value="Race">Race</option>
                       </select>

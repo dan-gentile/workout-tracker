@@ -15,6 +15,7 @@
     <header>
         <div class="logo-div">
             <img src="/assets/headerimage.png" alt="people running in park" width="240px">
+            <h3 style="text-align: center;">Run Tracker</h3>
         </div>
     </header>
 
@@ -42,8 +43,8 @@
                     <div class="form-input">
                         <label for="runtype">Run Type</label>
                         <select id="runtype">
-                                <option value="Easy">Easy Run</option> 
-                                <option value="Long" >Long Run</option>
+                                <option value="Easy Run">Easy Run</option> 
+                                <option value="Long Run" >Long Run</option>
                                 <option value="Workout" >Workout</option>
                                 <option value="Race">Race</option>
                               </select>
@@ -55,15 +56,15 @@
     </nav>
 
     <div class="chart">
-
+        <canvas id="myChart" width="240" height="240"></canvas>
     </div>
+
     <div id="runs" class="runs">
 
     </div>
 
-    <div class="calendar">
 
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="/js/generate-run.js"></script>
     <script src="/js/day-routes.js"></script>
     <script src="/js/run-routes.js"></script>

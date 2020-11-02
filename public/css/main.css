@@ -255,7 +255,7 @@ select {
 @media only screen and (max-width: 1024px) {
     body {
         grid-template-columns: 1fr minmax(320px, 1fr) 1fr;
-        grid-template-rows: 200px 50px 1fr 1fr;
+        grid-template-rows: 200px 50px 320px 1fr;
     }
     header {
         grid-column-start: 2;

@@ -12,7 +12,6 @@ const DaySchema = new Schema({
         ref: "Run"
     }]
 
-
 });
 
 const Day = mongoose.model("Day", DaySchema);

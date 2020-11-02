@@ -26,7 +26,6 @@ const RunSchema = new Schema({
 
 });
 
-
 RunSchema.methods.getPace = function() {
     const timeToSeconds = this.duration.split(':');
     const stringToSeconds = (+timeToSeconds[0] * 60 * 60) + (+timeToSeconds[1] * 60) + (+timeToSeconds[2]);

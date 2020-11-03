@@ -12,7 +12,6 @@
 - [General info](#general-info)
 - [Technologies](#Technologies)
 - [Deployment](#Deployment)
-- [Installation](#installation)
 - [Screen Shots](#Screen-shots)
 - [Code Snippets](#Code-snippets)
 - [Contributing](#contributing)

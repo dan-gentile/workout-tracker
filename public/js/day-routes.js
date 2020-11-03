@@ -150,9 +150,7 @@ const populatePage = () => {
         const h4 = document.createElement('h4');
         h4.style.textAlign = 'center';
         h4.innerText = `Seven Day Total is ${sevenDayTotal(weeklyDistance)} mi`;
-
         chartDiv.prepend(h4);
-
     }
     sevenDayTotalElement();
 
